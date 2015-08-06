@@ -19,13 +19,13 @@ docker run --rm -v $(pwd):/build -e "TARGETS=linux/amd64 darwin/amd64" quay.io/o
 
 Resulting binaries and packages will end up in:
 
-* `target/`
-  * `linux/`
-    * `x86_64/`
-      * `bin/`
-      * `pkg/`
-  * `darwin/`
-    * `x86_64/`
-      * `bin/`
-      * `pkg/`
+* target/
+  * linux/
+    * x86_64/
+      * bin/
+      * pkg/
+  * darwin/
+    * x86_64/
+      * bin/
+      * pkg/
 
