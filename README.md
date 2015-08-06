@@ -12,7 +12,10 @@ effort to standardize the build process, it makes a few simple of assumptions.
 NOTE: until we move to Go 1.5, we do not support cross-compilation so specifying TARGETS won't
 do you any good. We're only compiling to linux/amd64 at the moment.
 
-`docker run --rm -v `pwd`:/build -e "TARGETS=linux/amd64 darwin/amd64" quay.io/opsee/go-build`
+```
+docker pull quay.io/opsee/go-build
+docker run --rm -v $(pwd):/build -e "TARGETS=linux/amd64 darwin/amd64" quay.io/opsee/go-build
+```
 
 Resulting binaries and packages will end up in:
 
