@@ -16,6 +16,7 @@ RUN apk update && \
     make && \
     make install && \
     cd .. && \
+    go get -a github.com/golang/protobuf/protoc-gen-go && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /build && \
     mkdir -p /gopath/bin && \
