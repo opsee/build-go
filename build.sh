@@ -29,6 +29,12 @@ build() {
 TARGETS=${TARGETS:-"$(go env GOOS)/$(go env GOARCH)"}
 
 cd /build
+
+if [ -x build.sh ]; then
+  echo "Running project local build steps..."
+  ./build.sh
+fi
+
 rm -rf bin/ target/
 
 gb test
