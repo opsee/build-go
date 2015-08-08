@@ -6,6 +6,7 @@ effort to standardize the build process, it makes a few simple of assumptions.
 * You are using gb.
 * You have all of your vendor packages already.
 * You require that all tests be passing in order to build.
+* You may have additional build steps unique to a project.
 
 ## Building with go-build
 
@@ -29,3 +30,6 @@ Resulting binaries and packages will end up in:
       * bin/
       * pkg/
 
+## Local build.sh
+
+You may place a build.sh file in the root of your project for additional build steps. It will be run before the `gb build`.
