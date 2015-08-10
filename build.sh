@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e 
 
 build() {
   local os=$1
