@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:3.2
+FROM quay.io/opsee/build-base
 MAINTAINER Greg Poirier <greg@opsee.co>
 
 ENV GOROOT /usr/lib/go
