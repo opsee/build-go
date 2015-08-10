@@ -6,16 +6,7 @@ ENV GOPATH /gopath
 ENV GOBIN /gopath/bin
 ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
 
-RUN apk update && \
-    apk add curl git mercurial bzr go bash build-base m4 autoconf automake libtool && \
-    wget https://github.com/google/protobuf/archive/v3.0.0-alpha-3.tar.gz && \
-    tar -xzf v3.0.0-alpha-3.tar.gz && \
-    cd protobuf-3.0.0-alpha-3 && \
-    ./autogen.sh && \
-    ./configure --disable-debug --disable-dependency-tracking && \
-    make && \
-    make install && \
-    cd .. && \
+RUN apk add --update go && \
     go get -a github.com/golang/protobuf/protoc-gen-go && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /build && \
