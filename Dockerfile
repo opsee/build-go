@@ -11,7 +11,8 @@ RUN apk add --update go && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /build && \
     mkdir -p /gopath/bin && \
-    go get github.com/constabulary/gb/...
+    go get github.com/constabulary/gb/... && \
+		go get github.com/mattes/migrate
 
 VOLUME /build
 
