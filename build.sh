@@ -38,7 +38,7 @@ fi
 
 rm -rf bin/ target/
 
-gb test
+gb test -v
 if [ $? -ne 0 ]; then
   echo "Tests failed -- bailing out..."
   exit 1
