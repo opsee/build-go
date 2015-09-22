@@ -12,7 +12,7 @@ RUN sed -i -e 's/v3\.2/edge/g' /etc/apk/repositories; \
     apk add curl make git go; \
     rm -rf /var/cache/apk/* && \
     mkdir -p /build && \
-    mkdir -p /gopath/bin #&& \
+    mkdir -p /gopath/bin && \
     go get github.com/constabulary/gb/... && \
 	go get github.com/mattes/migrate
 
