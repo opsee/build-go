@@ -17,7 +17,6 @@ test:
   override:
     - docker build -t quay.io/opsee/build-go .
     - docker run -it quay.io/opsee/build-go:latest /bin/sh -c 'exit `go version | grep -cv "go1\.4\.."`'
-    docker tag quay.io/opsee/build-go quay.io/opsee/build-go:1.4 
 
 deployment:
   ami:
