@@ -18,6 +18,9 @@ build() {
     bin="${target}/bin"
     mkdir -p $bin
     cp bin/* $bin
+    for f in /build/${bin}/*-${os}-${arch}; do
+      mv $f ${f%-${os}-${arch}}
+    done
   fi
 
   if [ -d pkg/ ]; then
