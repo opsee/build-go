@@ -19,8 +19,10 @@ RUN sed -i -e 's/v3\.2/edge/g' /etc/apk/repositories; \
     go get -u google.golang.org/grpc && \
     go get -u github.com/golang/protobuf/proto && \
     go get -u github.com/golang/protobuf/protoc-gen-go && \
-    go get -u github.com/golang/protobuf/jsonpb
-    
+    go get -u github.com/golang/protobuf/jsonpb && \
+    go get -u github.com/gogo/protobuf/proto && \
+    go get -u github.com/gogo/protobuf/protoc-gen-gogo && \
+    go get -u github.com/gogo/protobuf/gogoproto
 
 VOLUME /build
 
