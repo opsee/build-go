@@ -10,7 +10,7 @@ ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
 RUN sed -i -e 's/v3\.3/edge/g' /etc/apk/repositories; \
     echo 'http://dl-4.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
     apk update; \
-    apk add --update openssl bash build-base ca-certificates curl make git go; \
+    apk add --update openssl bash build-base ca-certificates curl make git go postgresql-client; \
     rm -rf /var/cache/apk/* && \
     mkdir -p /build && \
     mkdir -p /gopath/bin && \
