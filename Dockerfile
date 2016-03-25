@@ -15,7 +15,12 @@ RUN sed -i -e 's/v3\.3/edge/g' /etc/apk/repositories; \
     mkdir -p /build && \
     mkdir -p /gopath/bin && \
 		go get -u github.com/mattes/migrate && \
-		go get -u github.com/kardianos/govendor
+		go get -u github.com/kardianos/govendor && \
+        go get github.com/gogo/protobuf/protoc-gen-gofast && \ 
+        go get github.com/gogo/protobuf/proto && \
+        go get github.com/gogo/protobuf/protoc-gen-gogo && \
+        go get github.com/gogo/protobuf/gogoproto
+
 
 VOLUME /build
 
