@@ -1,23 +1,16 @@
-FROM quay.io/opsee/build-base:proto302beta
-MAINTAINER Greg Poirier <greg@opsee.co>
+FROM quay.io/opsee/build-go:go16
 
-ENV GOROOT /usr/lib/go
-ENV GOPATH /gopath
-ENV GOBIN /gopath/bin
-ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
+RUN go get -u github.com/gogo/protobuf/proto && \
+    go get -u github.com/gogo/protobuf/protoc-gen-gogo && \
+    go get -u github.com/gogo/protobuf/gogoproto && \
+    go get -u go.pedge.io/pb || true
 
-RUN sed -i -e 's/v3\.3/edge/g' /etc/apk/repositories; \
-    echo 'http://dl-4.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
-    apk update; \
-    apk add --update openssl bash build-base ca-certificates curl make git go postgresql-client; \
-    rm -rf /var/cache/apk/* && \
-    mkdir -p /build && \
-    mkdir -p /gopath/bin && \
-		go get -u github.com/mattes/migrate && \
-		go get -u github.com/kardianos/govendor
+COPY ./ /gopath/src/github.com/opsee/protobuf
 
-VOLUME /build
-
-COPY build.sh /build.sh
-
-CMD ["/build.sh"]
+RUN cd /gopath/src/github.com/opsee/protobuf && \
+  go get ./opseeproto && \
+  go get ./plugin/... && \
+  go get ./protoc-gen-gogoopsee && \
+  go install ./opseeproto && \
+  go install ./plugin/... && \
+  go install ./protoc-gen-gogoopsee
