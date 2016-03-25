@@ -1,11 +1,10 @@
-FROM alpine:3.3
+FROM quay.io/opsee/build-base:proto302beta
 MAINTAINER Greg Poirier <greg@opsee.co>
 
 ENV GOROOT /usr/lib/go
 ENV GOPATH /gopath
 ENV GOBIN /gopath/bin
 ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
-
 
 RUN sed -i -e 's/v3\.3/edge/g' /etc/apk/repositories; \
     echo 'http://dl-4.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
