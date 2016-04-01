@@ -16,7 +16,7 @@ dependencies:
 test:
   override:
     - docker build -t quay.io/opsee/build-go:16 .
-    - docker run -it quay.io/opsee/build-go:16 /bin/sh -c 'exit `go version | grep -cv "go1\.6\.."`'
+    - docker run -it quay.io/opsee/build-go:16 /bin/sh -c 'echo `go version` && exit `go version | grep -cv "go1\.6"`'
     - docker push quay.io/opsee/build-go:16
 
 deployment:
