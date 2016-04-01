@@ -26,7 +26,7 @@ if [ -x build.sh ]; then
   ./build.sh
 fi
 
-govendor test -v -bench +local
+govendor test -v -bench -race +local
 if [ $? -ne 0 ]; then
   echo "Tests failed -- bailing out..."
   exit 1
