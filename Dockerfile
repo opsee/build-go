@@ -16,15 +16,18 @@ RUN wget https://github.com/google/protobuf/archive/v3.0.0-beta-2.tar.gz && \
         tar -xzf v3.0.0-beta-2.tar.gz && \
         cd protobuf-3.0.0-beta-2 && \
         ./autogen.sh && \
-        ./configure --disable-debug --disable-dependency-tracking && \
+        ./configure --disable-debug --disable-dependency-tracking --prefix=/usr && \
         make && \
+        make check && \
         make install
 RUN mkdir -p /build && \
     mkdir -p /gopath/bin && \
 		go get -u github.com/mattes/migrate && \
 		go get -u github.com/kardianos/govendor && \
     go get -u google.golang.org/grpc && \
-    go get -u github.com/gogo/protobuf/...
+    go get -u github.com/gogo/protobuf/proto && \
+    go get -u github.com/gogo/protobuf/protoc-gen-gogo && \
+    go get -u github.com/gogo/protobuf/gogoproto
 
 VOLUME /build
 
